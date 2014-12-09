@@ -1,0 +1,40 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 21
+    buildToolsVersion "20.0.0"
+
+    defaultConfig {
+        applicationId "com.avene.avene.livina"
+        minSdkVersion 15
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/beans.xml'
+    }
+}
+repositories {
+    maven {
+        url 'http://4thline.org/m2'
+    }
+}
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:21.0.2'
+
+    // Cling
+    compile group: 'org.fourthline.cling', name: 'cling-core', version: '2.0.1'
+    compile group: 'org.fourthline.cling', name: 'cling-support', version: '2.0.1'
+    compile group: 'org.eclipse.jetty', name: 'jetty-server', version: '8.1.12.v20130726'
+    compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '8.1.12.v20130726'
+    compile group: 'org.eclipse.jetty', name: 'jetty-client', version: '8.1.12.v20130726'
+    compile group: 'org.slf4j', name: 'slf4j-jdk14', version: '1.7.5'
+}
