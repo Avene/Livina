@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'testfairy'
 
 android {
     compileSdkVersion 21
@@ -12,6 +13,8 @@ android {
         versionName "1.0"
     }
     buildTypes {
+        debug{
+        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -19,6 +22,10 @@ android {
     }
     packagingOptions {
         exclude 'META-INF/beans.xml'
+    }
+    testfairyConfig {
+        apply from: "../local.build.properties"
+        apiKey project.testfairyapikey
     }
 }
 repositories {
@@ -37,4 +44,14 @@ dependencies {
     compile group: 'org.eclipse.jetty', name: 'jetty-servlet', version: '8.1.12.v20130726'
     compile group: 'org.eclipse.jetty', name: 'jetty-client', version: '8.1.12.v20130726'
     compile group: 'org.slf4j', name: 'slf4j-jdk14', version: '1.7.5'
+}
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url 'https://www.testfairy.com/maven' }
+    }
+
+    dependencies {
+        classpath 'com.testfairy.plugins.gradle:testfairy:1.+'
+    }
 }
