@@ -36,6 +36,9 @@ repositories {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:21.0.2'
+    compile 'com.android.support:cardview-v7:21.0.+'
+    compile 'com.android.support:recyclerview-v7:21.0.+'
+    compile 'com.android.support:palette-v7:+'
 
     // Cling
     compile group: 'org.fourthline.cling', name: 'cling-core', version: '2.0.1'
