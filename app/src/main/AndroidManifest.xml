@@ -2,11 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.avene.avene.livina" >
 
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -23,8 +23,24 @@
             </intent-filter>
         </activity>
 
-        <service android:name="org.fourthline.cling.android.AndroidUpnpServiceImpl"/>
+        <service android:name="org.fourthline.cling.android.AndroidUpnpServiceImpl" />
 
+        <activity
+            android:name=".AlbumListActivity"
+            android:label="@string/title_album_list"
+            android:parentActivityName=".activity.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.avene.avene.livina.activity.MainActivity" />
+        </activity>
+        <activity
+            android:name=".AlbumDetailActivity"
+            android:label="@string/title_album_detail"
+            android:parentActivityName=".AlbumListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.avene.avene.livina.AlbumListActivity" />
+        </activity>
     </application>
 
 </manifest>
