@@ -116,7 +116,7 @@ public class MainActivity extends ActionBarActivity {
             LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
             recyclerView.setLayoutManager(layoutManager);
 
-            mAdapter = new MainAdapter();
+            mAdapter = new MainAdapter(getActivity());
             recyclerView.setAdapter(mAdapter);
 
             getActivity().getApplicationContext().bindService(
@@ -130,7 +130,7 @@ public class MainActivity extends ActionBarActivity {
 
         protected class BrowseRegistryListener extends DefaultRegistryListener {
 
-            /* Discovery performance optimization for very slow Android devices! */
+// Discovery performance optimization for very slow Android devices!
             @Override
             public void remoteDeviceDiscoveryStarted(Registry registry, RemoteDevice device) {
                 deviceAdded(device);
@@ -141,20 +141,15 @@ public class MainActivity extends ActionBarActivity {
                                                     final Exception ex) {
                 getActivity().runOnUiThread(new Runnable() {
                     public void run() {
-                        Toast.makeText(
-                                getActivity(),
+                        Toast.makeText(getActivity(),
                                 "Discovery failed of '" + device.getDisplayString() + "': "
                                         + (ex != null ? ex.toString() : "Couldn't retrieve " +
-                                        "device/service" +
-                                        " descriptors"),
+                                        "device/service descriptors"),
                                 Toast.LENGTH_LONG
-                        ).show();
-                    }
-                });
+                        ).show();}});
                 deviceRemoved(device);
             }
-    /* End of optimization, you can remove the whole block if your Android handset is fast (>=
-    600 Mhz) */
+// End of optimization, you can remove the whole block if your Android handset is fast (>=600 Mhz)
 
             @Override
             public void remoteDeviceAdded(Registry registry, RemoteDevice device) {
