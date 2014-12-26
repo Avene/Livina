@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBarActivity;
 import android.view.MenuItem;
 
 
@@ -23,7 +24,7 @@ import android.view.MenuItem;
  * {@link AlbumListFragment.Callbacks} interface
  * to listen for item selections.
  */
-public class AlbumListActivity extends FragmentActivity
+public class AlbumListActivity extends ActionBarActivity
         implements AlbumListFragment.Callbacks {
 
     /**

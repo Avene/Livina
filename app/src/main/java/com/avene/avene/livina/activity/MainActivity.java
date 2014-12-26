@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.avene.avene.livina.AlbumListActivity;
 import com.avene.avene.livina.R;
 import com.avene.avene.livina.adapter.MainAdapter;
 import com.avene.avene.livina.upnp.DeviceDisplay;
@@ -124,7 +125,13 @@ public class MainActivity extends ActionBarActivity {
                     serviceConnection,
                     Context.BIND_AUTO_CREATE
             );
-
+            rootView.findViewById(R.id.album_list_Button).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(getActivity(), AlbumListActivity.class);
+                    startActivity(i);
+                }
+            });
             return rootView;
         }
 

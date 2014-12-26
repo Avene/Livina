@@ -59,9 +59,13 @@ public class DeviceDisplay {
 
     public Drawable getIcon() {
         if(mDevice.hasIcons()) {
-            Icon[] icons = mDevice.getIcons();
-            return Drawable.createFromStream(new ByteArrayInputStream(icons[0].getData())
-                    , toString());
+            Icon icon = mDevice.getIcons()[0];
+            if(null != icon.getData()){
+                return Drawable.createFromStream(new ByteArrayInputStream(icon.getData())
+                        , toString());
+            }else{
+                return null;
+            }
         }else{
             return null;
         }
