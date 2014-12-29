@@ -12,7 +12,7 @@ import com.avene.avene.livina.dummy.DummyContent;
 
 /**
  * A fragment representing a single Album detail screen.
- * This fragment is either contained in a {@link AlbumListActivity}
+ * This fragment is either contained in a {@link AlbumsActivity}
  * in two-pane mode (on tablets) or a {@link AlbumDetailActivity}
  * on handsets.
  */

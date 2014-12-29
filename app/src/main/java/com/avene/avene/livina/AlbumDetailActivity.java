@@ -11,7 +11,7 @@ import android.view.MenuItem;
  * An activity representing a single Album detail screen. This
  * activity is only used on handset devices. On tablet-size devices,
  * item details are presented side-by-side with a list of items
- * in a {@link AlbumListActivity}.
+ * in a {@link AlbumsActivity}.
  * <p/>
  * This activity is mostly just a 'shell' activity containing nothing
  * more than a {@link AlbumDetailFragment}.
@@ -60,7 +60,7 @@ public class AlbumDetailActivity extends ActionBarActivity {
             //
             // http://developer.android.com/design/patterns/navigation.html#up-vs-back
             //
-            NavUtils.navigateUpTo(this, new Intent(this, AlbumListActivity.class));
+            NavUtils.navigateUpTo(this, new Intent(this, AlbumsActivity.class));
             return true;
         }
         return super.onOptionsItemSelected(item);

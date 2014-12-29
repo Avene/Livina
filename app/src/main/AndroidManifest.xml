@@ -26,7 +26,7 @@
         <service android:name="org.fourthline.cling.android.AndroidUpnpServiceImpl" />
 
         <activity
-            android:name=".AlbumListActivity"
+            android:name=".AlbumsActivity"
             android:label="@string/title_album_list"
             android:parentActivityName=".activity.MainActivity" >
             <meta-data
@@ -36,10 +36,10 @@
         <activity
             android:name=".AlbumDetailActivity"
             android:label="@string/title_album_detail"
-            android:parentActivityName=".AlbumListActivity" >
+            android:parentActivityName=".AlbumsActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.avene.avene.livina.AlbumListActivity" />
+                android:value=".AlbumsActivity" />
         </activity>
     </application>
 

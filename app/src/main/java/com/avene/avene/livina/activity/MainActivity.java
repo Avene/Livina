@@ -17,7 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.avene.avene.livina.AlbumListActivity;
+import com.avene.avene.livina.AlbumsActivity;
 import com.avene.avene.livina.R;
 import com.avene.avene.livina.adapter.MainAdapter;
 import com.avene.avene.livina.upnp.DeviceDisplay;
@@ -29,8 +29,6 @@ import org.fourthline.cling.model.meta.LocalDevice;
 import org.fourthline.cling.model.meta.RemoteDevice;
 import org.fourthline.cling.registry.DefaultRegistryListener;
 import org.fourthline.cling.registry.Registry;
-
-import java.util.Comparator;
 
 public class MainActivity extends ActionBarActivity {
 
@@ -128,7 +126,7 @@ public class MainActivity extends ActionBarActivity {
             rootView.findViewById(R.id.album_list_Button).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent i = new Intent(getActivity(), AlbumListActivity.class);
+                    Intent i = new Intent(getActivity(), AlbumsActivity.class);
                     startActivity(i);
                 }
             });
