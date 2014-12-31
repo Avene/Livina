@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import com.avene.avene.livina.R;
 import com.avene.avene.livina.content.ServersContent;
 
 /**
@@ -57,7 +58,7 @@ public class MediaServersFragment extends ListFragment {
 
         // TODO: Change Adapter to display your content
         setListAdapter(new ArrayAdapter<ServersContent.ServerItem>(getActivity(),
-                android.R.layout.simple_list_item_1, android.R.id.text1, ServersContent.ITEMS));
+                R.layout.item_server, R.id.server_switch, ServersContent.ITEMS));
     }
 
 
