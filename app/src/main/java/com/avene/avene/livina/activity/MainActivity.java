@@ -21,11 +21,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.avene.avene.livina.AlbumDetailActivity;
-import com.avene.avene.livina.AlbumDetailFragment;
-import com.avene.avene.livina.AlbumsFragment;
-import com.avene.avene.livina.DrawerFragmentFactory;
-import com.avene.avene.livina.NavigationDrawerFragment;
+import com.avene.avene.livina.fragment.AlbumDetailFragment;
+import com.avene.avene.livina.fragment.AlbumsFragment;
+import com.avene.avene.livina.factory.DrawerFragmentFactory;
+import com.avene.avene.livina.fragment.NavigationDrawerFragment;
 import com.avene.avene.livina.R;
 import com.avene.avene.livina.adapter.MainAdapter;
 import com.avene.avene.livina.upnp.DeviceDisplay;

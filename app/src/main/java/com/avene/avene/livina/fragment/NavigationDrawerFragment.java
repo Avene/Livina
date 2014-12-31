@@ -1,4 +1,4 @@
-package com.avene.avene.livina;
+package com.avene.avene.livina.fragment;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -21,6 +21,9 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
+
+import com.avene.avene.livina.R;
+import com.avene.avene.livina.factory.DrawerFragmentFactory;
 
 /**
  * Fragment used for managing interactions for and presentation of a navigation drawer.

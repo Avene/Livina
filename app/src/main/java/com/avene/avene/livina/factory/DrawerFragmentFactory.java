@@ -1,6 +1,8 @@
-package com.avene.avene.livina;
+package com.avene.avene.livina.factory;
 
 import android.app.Fragment;
+
+import com.avene.avene.livina.fragment.AlbumsFragment;
 
 /**
  * Created by yamai on 12/31/2014.

@@ -1,4 +1,4 @@
-package com.avene.avene.livina;
+package com.avene.avene.livina.fragment;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,12 +8,13 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
+import com.avene.avene.livina.R;
 import com.avene.avene.livina.dummy.AlbumsContent;
 
 /**
  * A fragment representing a single Album detail screen.
- * This fragment is either contained in a {@link com.avene.avene.livina.AlbumsFragment}
- * in two-pane mode (on tablets) or a {@link AlbumDetailActivity}  on handsets.
+ * This fragment is either contained in a {@link AlbumsFragment}
+ * in two-pane mode (on tablets) or a {@link com.avene.avene.livina.activity.AlbumDetailActivity}  on handsets.
  */
 public class AlbumDetailFragment extends Fragment {
     /**
