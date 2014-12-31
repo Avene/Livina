@@ -1,12 +1,16 @@
 package com.avene.avene.livina.activity;
 
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
 import android.os.Bundle;
 import android.os.IBinder;
-import android.support.v4.app.Fragment;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -17,7 +21,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.avene.avene.livina.AlbumsActivity;
+import com.avene.avene.livina.AlbumDetailActivity;
+import com.avene.avene.livina.AlbumDetailFragment;
+import com.avene.avene.livina.AlbumsFragment;
+import com.avene.avene.livina.DrawerFragmentFactory;
+import com.avene.avene.livina.NavigationDrawerFragment;
 import com.avene.avene.livina.R;
 import com.avene.avene.livina.adapter.MainAdapter;
 import com.avene.avene.livina.upnp.DeviceDisplay;
@@ -30,40 +38,144 @@ import org.fourthline.cling.model.meta.RemoteDevice;
 import org.fourthline.cling.registry.DefaultRegistryListener;
 import org.fourthline.cling.registry.Registry;
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends ActionBarActivity
+        implements NavigationDrawerFragment.NavigationDrawerCallbacks,
+        AlbumsFragment.OnFragmentInteractionListener {
+
+    /**
+     * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
+     */
+    private NavigationDrawerFragment mNavigationDrawerFragment;
+
+    /**
+     * Used to store the last screen title. For use in {@link #restoreActionBar()}.
+     */
+    private CharSequence mTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new MainFragment())
-                    .commit();
-        }
+
+        mNavigationDrawerFragment = (NavigationDrawerFragment)
+                getFragmentManager().findFragmentById(R.id.navigation_drawer);
+        mTitle = getTitle();
+
+        // Set up the drawer.
+        mNavigationDrawerFragment.setUp(
+                R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
     }
 
     @Override
+    public void onNavigationDrawerItemSelected(int position) {
+        // update the main content by replacing fragments
+        FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.beginTransaction()
+                .replace(R.id.container, DrawerFragmentFactory.getFragment(position)).commit();
+    }
+
+    public void onSectionAttached(String title) {
+        mTitle = title;
+    }
+
+    public void restoreActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_STANDARD);
+        actionBar.setDisplayShowTitleEnabled(true);
+        actionBar.setTitle(mTitle);
+    }
+
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+        if (!mNavigationDrawerFragment.isDrawerOpen()) {
+            // Only show items in the action bar relevant to this screen if the drawer is not 
+            // showing.
+            // Otherwise, let the drawer decide what to show in the action bar.
+            getMenuInflater().inflate(R.menu.drawer, menu);
+            restoreActionBar();
+            return true;
+        }
+        return super.onCreateOptionsMenu(menu);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
+        // Handle action bar item clicks here. The action bar will automatically handle clicks
+        // on the Home/Up button, so long as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Toast.makeText(this, "TODO: create settings view", Toast.LENGTH_SHORT).show();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+    /**
+     * Callback method from {@link AlbumsFragment.OnFragmentInteractionListener}
+     * indicating that the item with the given ID was selected.
+     */
+    @Override
+    public void onFragmentInteraction(String id) {
+        Intent detailIntent = new Intent(this, AlbumDetailActivity.class);
+        detailIntent.putExtra(AlbumDetailFragment.ARG_ITEM_ID, id);
+        startActivity(detailIntent);
+    }
+
+    /**
+     * A placeholder fragment containing a simple view.
+     */
+    public static class PlaceholderFragment extends Fragment {
+        /**
+         * The fragment argument representing the section number for this fragment.
+         */
+        private static final String ARG_SECTION_NUMBER = "section_number";
+
+        /**
+         * Returns a new instance of this fragment for the given section number.
+         */
+        public static PlaceholderFragment newInstance(int sectionNumber) {
+            PlaceholderFragment fragment = new PlaceholderFragment();
+            Bundle args = new Bundle();
+            args.putInt(ARG_SECTION_NUMBER, sectionNumber);
+            fragment.setArguments(args);
+            return fragment;
+        }
+
+        public PlaceholderFragment() {
+        }
+
+        @Override
+        public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                                 Bundle savedInstanceState) {
+            View rootView = inflater.inflate(R.layout.fragment_drawer, container, false);
+            return rootView;
+        }
+
+        @Override
+        public void onAttach(Activity activity) {
+            super.onAttach(activity);
+            String title;
+            switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
+                case 1:
+                    title = getString(R.string.title_section1);
+                    break;
+                case 2:
+                    title = getString(R.string.title_section2);
+                    break;
+                case 3:
+                    title = getString(R.string.title_section3);
+                    break;
+                default:
+                    title = "";
+            }
+            ((MainActivity) activity).onSectionAttached(title);
+        }
+    }
+
 
     public static class MainFragment extends Fragment {
 
@@ -123,19 +235,12 @@ public class MainActivity extends ActionBarActivity {
                     serviceConnection,
                     Context.BIND_AUTO_CREATE
             );
-            rootView.findViewById(R.id.album_list_Button).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent i = new Intent(getActivity(), AlbumsActivity.class);
-                    startActivity(i);
-                }
-            });
             return rootView;
         }
 
         protected class BrowseRegistryListener extends DefaultRegistryListener {
 
-// Discovery performance optimization for very slow Android devices!
+            // Discovery performance optimization for very slow Android devices!
             @Override
             public void remoteDeviceDiscoveryStarted(Registry registry, RemoteDevice device) {
                 deviceAdded(device);
@@ -151,7 +256,9 @@ public class MainActivity extends ActionBarActivity {
                                         + (ex != null ? ex.toString() : "Couldn't retrieve " +
                                         "device/service descriptors"),
                                 Toast.LENGTH_LONG
-                        ).show();}});
+                        ).show();
+                    }
+                });
                 deviceRemoved(device);
             }
 // End of optimization, you can remove the whole block if your Android handset is fast (>=600 Mhz)

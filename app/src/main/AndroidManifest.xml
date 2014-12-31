@@ -26,28 +26,12 @@
         <service android:name="org.fourthline.cling.android.AndroidUpnpServiceImpl" />
 
         <activity
-            android:name=".AlbumsActivity"
-            android:label="@string/title_album_list"
-            android:parentActivityName=".activity.MainActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.avene.avene.livina.activity.MainActivity" />
-        </activity>
-        <activity
             android:name=".AlbumDetailActivity"
             android:label="@string/title_album_detail"
-            android:parentActivityName=".AlbumsActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".AlbumsActivity" />
-        </activity>
-        <activity
-            android:name=".DrawerActivity"
-            android:label="@string/title_activity_drawer"
             android:parentActivityName=".activity.MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.avene.avene.livina.activity.MainActivity" />
+                android:value=".activity.MainActivity" />
         </activity>
     </application>
 

@@ -1,8 +1,0 @@
-<fragment xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools"
-          android:id="@+id/album_list"
-          android:name="com.avene.avene.livina.AlbumsFragment"
-          android:layout_width="match_parent"
-          android:layout_height="match_parent"
-          tools:context="com.avene.avene.livina.AlbumsActivity"
-          tools:layout="@android:layout/list_content"/>

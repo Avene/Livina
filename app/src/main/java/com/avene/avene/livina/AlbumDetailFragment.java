@@ -12,9 +12,8 @@ import com.avene.avene.livina.dummy.AlbumsContent;
 
 /**
  * A fragment representing a single Album detail screen.
- * This fragment is either contained in a {@link AlbumsActivity}
- * in two-pane mode (on tablets) or a {@link AlbumDetailActivity}
- * on handsets.
+ * This fragment is either contained in a {@link com.avene.avene.livina.AlbumsFragment}
+ * in two-pane mode (on tablets) or a {@link AlbumDetailActivity}  on handsets.
  */
 public class AlbumDetailFragment extends Fragment {
     /**
