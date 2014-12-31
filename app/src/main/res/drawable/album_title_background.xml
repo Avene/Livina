@@ -13,7 +13,7 @@
         android:startColor="#0000"
         android:centerColor="#6000"
         android:endColor="#f000"
-        android:centerY="0.7"
+        android:centerY="0.4"
         android:type="linear"
         android:useLevel="false" />
 </shape>
