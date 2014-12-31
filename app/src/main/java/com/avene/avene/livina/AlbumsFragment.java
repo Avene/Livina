@@ -1,8 +1,8 @@
 package com.avene.avene.livina;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
-import com.avene.avene.livina.dummy.DummyContent;
+import com.avene.avene.livina.dummy.AlbumsContent;
 
 /**
  * A fragment representing a list of Items.
@@ -74,8 +74,8 @@ public class AlbumsFragment extends Fragment implements AbsListView.OnItemClickL
         }
 
         // TODO: Change Adapter to display your content
-        mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
-                android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS);
+        mAdapter = new ArrayAdapter<AlbumsContent.DummyItem>(getActivity(),
+                R.layout.item_album_grid, R.id.album_title, AlbumsContent.ITEMS);
     }
 
     @Override
@@ -85,7 +85,7 @@ public class AlbumsFragment extends Fragment implements AbsListView.OnItemClickL
 
         // Set the adapter
         mListView = (AbsListView) view.findViewById(android.R.id.list);
-        ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
+        mListView.setAdapter(mAdapter);
 
         // Set OnItemClickListener so we can be notified on item clicks
         mListView.setOnItemClickListener(this);
@@ -116,7 +116,7 @@ public class AlbumsFragment extends Fragment implements AbsListView.OnItemClickL
         if (null != mListener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
-            mListener.onFragmentInteraction(DummyContent.ITEMS.get(position).id);
+            mListener.onFragmentInteraction(AlbumsContent.ITEMS.get(position).id);
         }
     }
 
