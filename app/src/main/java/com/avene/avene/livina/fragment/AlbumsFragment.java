@@ -24,7 +24,8 @@ import com.avene.avene.livina.content.AlbumsContent;
  * Activities containing this fragment MUST implement the {@link OnFragmentInteractionListener}
  * interface.
  */
-public class AlbumsFragment extends Fragment implements AbsListView.OnItemClickListener {
+public class AlbumsFragment extends LivinaFragment
+        implements AbsListView.OnItemClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -75,7 +76,7 @@ public class AlbumsFragment extends Fragment implements AbsListView.OnItemClickL
         }
 
         // TODO: Change Adapter to display your content
-        mAdapter = new ArrayAdapter<AlbumsContent.DummyItem>(getActivity(),
+        mAdapter = new ArrayAdapter<>(getActivity(),
                 R.layout.item_album_grid, R.id.album_title, AlbumsContent.ITEMS);
     }
 
@@ -103,6 +104,11 @@ public class AlbumsFragment extends Fragment implements AbsListView.OnItemClickL
             throw new ClassCastException(activity.toString()
                     + " must implement OnFragmentInteractionListener");
         }
+    }
+
+    @Override
+    public String getTitle() {
+        return "Albums";
     }
 
     @Override

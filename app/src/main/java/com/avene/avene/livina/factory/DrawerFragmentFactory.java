@@ -3,26 +3,35 @@ package com.avene.avene.livina.factory;
 import android.app.Fragment;
 
 import com.avene.avene.livina.fragment.AlbumsFragment;
+import com.avene.avene.livina.fragment.LivinaFragment;
 import com.avene.avene.livina.fragment.MediaServersFragment;
+
+import java.util.ArrayList;
 
 /**
  * Created by yamai on 12/31/2014.
  */
 public class DrawerFragmentFactory {
-    private final static Fragment[] sDrawerFragments;
+    private final static LivinaFragment[] sDrawerFragments;
+    private final static String[] sDrawerFragmentTitles;
 
     static {
-        sDrawerFragments = new Fragment[]{
+        sDrawerFragments = new LivinaFragment[]{
                 AlbumsFragment.newInstance(null, null),
                 MediaServersFragment.newInstance(null, null)
         };
+        ArrayList<String> titles = new ArrayList<String>();
+        for(LivinaFragment f: sDrawerFragments){
+            titles.add(f.getTitle());
+        }
+        sDrawerFragmentTitles = titles.toArray(new String[sDrawerFragments.length]);
     }
 
     public static Fragment getFragment(int position) {
         return sDrawerFragments[position];
     }
 
-    public static String[] getDrawerListArray() {
-        return new String[]{"Albums", "Servers"};
+    public static String[] getDrawerTitlesArray() {
+        return sDrawerFragmentTitles;
     }
 }
