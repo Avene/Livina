@@ -1,8 +1,8 @@
 package com.avene.avene.livina;
 
 import android.app.Activity;
-import android.os.Bundle;
 import android.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,7 +75,7 @@ public class AlbumsFragment extends Fragment implements AbsListView.OnItemClickL
 
         // TODO: Change Adapter to display your content
         mAdapter = new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
-                android.R.layout.simple_list_item_1, android.R.id.text1, DummyContent.ITEMS);
+                R.layout.item_album_grid, R.id.album_title, DummyContent.ITEMS);
     }
 
     @Override
@@ -85,7 +85,7 @@ public class AlbumsFragment extends Fragment implements AbsListView.OnItemClickL
 
         // Set the adapter
         mListView = (AbsListView) view.findViewById(android.R.id.list);
-        ((AdapterView<ListAdapter>) mListView).setAdapter(mAdapter);
+        mListView.setAdapter(mAdapter);
 
         // Set OnItemClickListener so we can be notified on item clicks
         mListView.setOnItemClickListener(this);

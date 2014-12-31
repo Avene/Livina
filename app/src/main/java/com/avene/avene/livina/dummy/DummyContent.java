@@ -28,6 +28,18 @@ public class DummyContent {
         addItem(new DummyItem("1", "Album 1"));
         addItem(new DummyItem("2", "Album 2"));
         addItem(new DummyItem("3", "Album 3"));
+        addItem(new DummyItem("4", "Album 4"));
+        addItem(new DummyItem("5", "Album 5"));
+        addItem(new DummyItem("6", "Album 6"));
+        addItem(new DummyItem("7", "Album 7"));
+        addItem(new DummyItem("8", "Album 8"));
+        addItem(new DummyItem("9", "Album 9"));
+        addItem(new DummyItem("10", "Album 10"));
+        addItem(new DummyItem("11", "Album 11"));
+        addItem(new DummyItem("12", "Album 12"));
+        addItem(new DummyItem("13", "Album 13"));
+        addItem(new DummyItem("14", "Album 14"));
+        addItem(new DummyItem("15", "Album 15"));
     }
 
     private static void addItem(DummyItem item) {
