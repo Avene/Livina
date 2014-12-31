@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 
 import com.avene.avene.livina.R;
-import com.avene.avene.livina.dummy.AlbumsContent;
+import com.avene.avene.livina.content.AlbumsContent;
 
 /**
  * A fragment representing a single Album detail screen.

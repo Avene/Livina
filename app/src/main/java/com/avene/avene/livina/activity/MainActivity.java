@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.avene.avene.livina.fragment.AlbumDetailFragment;
 import com.avene.avene.livina.fragment.AlbumsFragment;
 import com.avene.avene.livina.factory.DrawerFragmentFactory;
+import com.avene.avene.livina.fragment.MediaServersFragment;
 import com.avene.avene.livina.fragment.NavigationDrawerFragment;
 import com.avene.avene.livina.R;
 import com.avene.avene.livina.adapter.MainAdapter;
@@ -39,7 +40,8 @@ import org.fourthline.cling.registry.Registry;
 
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
-        AlbumsFragment.OnFragmentInteractionListener {
+        AlbumsFragment.OnFragmentInteractionListener,
+        MediaServersFragment.OnFragmentInteractionListener {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -118,10 +120,15 @@ public class MainActivity extends ActionBarActivity
      * indicating that the item with the given ID was selected.
      */
     @Override
-    public void onFragmentInteraction(String id) {
+    public void onAlbumsInteraction(String id) {
         Intent detailIntent = new Intent(this, AlbumDetailActivity.class);
         detailIntent.putExtra(AlbumDetailFragment.ARG_ITEM_ID, id);
         startActivity(detailIntent);
+    }
+
+    @Override
+    public void onMediaServerInteraction(String id) {
+        Toast.makeText(this, "server selected", Toast.LENGTH_SHORT).show();
     }
 
     /**
