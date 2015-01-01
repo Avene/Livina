@@ -7,6 +7,7 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.support.v4.widget.DrawerLayout;
@@ -21,13 +22,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.avene.avene.livina.fragment.AlbumDetailFragment;
-import com.avene.avene.livina.fragment.AlbumsFragment;
-import com.avene.avene.livina.factory.DrawerFragmentFactory;
-import com.avene.avene.livina.fragment.MediaServersFragment;
-import com.avene.avene.livina.fragment.NavigationDrawerFragment;
 import com.avene.avene.livina.R;
 import com.avene.avene.livina.adapter.MainAdapter;
+import com.avene.avene.livina.factory.DrawerFragmentFactory;
+import com.avene.avene.livina.fragment.AlbumDetailFragment;
+import com.avene.avene.livina.fragment.AlbumsFragment;
+import com.avene.avene.livina.fragment.MediaServersFragment;
+import com.avene.avene.livina.fragment.NavigationDrawerFragment;
+import com.avene.avene.livina.fragment.Player;
 import com.avene.avene.livina.upnp.DeviceDisplay;
 
 import org.fourthline.cling.android.AndroidUpnpService;
@@ -41,7 +43,8 @@ import org.fourthline.cling.registry.Registry;
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
         AlbumsFragment.OnFragmentInteractionListener,
-        MediaServersFragment.OnFragmentInteractionListener {
+        MediaServersFragment.OnFragmentInteractionListener,
+        Player.OnFragmentInteractionListener {
 
     /**
      * Fragment managing the behaviors, interactions and presentation of the navigation drawer.
@@ -129,6 +132,11 @@ public class MainActivity extends ActionBarActivity
     @Override
     public void onMediaServerInteraction(String id) {
         Toast.makeText(this, "server selected", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onPlayerInteraction(Uri uri) {
+        Toast.makeText(this, "player interacted", Toast.LENGTH_SHORT).show();
     }
 
     /**

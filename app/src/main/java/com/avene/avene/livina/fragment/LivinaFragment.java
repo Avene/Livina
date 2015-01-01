@@ -3,7 +3,6 @@ package com.avene.avene.livina.fragment;
 import android.app.Activity;
 import android.app.Fragment;
 
-import com.avene.avene.livina.R;
 import com.avene.avene.livina.activity.MainActivity;
 
 /**
@@ -15,6 +14,6 @@ public abstract class LivinaFragment extends Fragment {
         super.onAttach(activity);
         ((MainActivity) activity).onSectionAttached(getTitle());
     }
-    
+
     public abstract String getTitle();
 }
