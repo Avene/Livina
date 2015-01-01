@@ -1,13 +1,163 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="com.avene.avene.livina.fragment.Player">
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/spacing_small"
+    tools:context="com.avene.avene.livina.fragment.Player">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
+        android:id="@+id/now_playing_label"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/spacing_ex_large"
+        android:text="Now Playing"/>
+
+    <com.avene.avene.livina.widget.SquareFrameLayout
+        android:id="@+id/album_picture_wrapper"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment"/>
+        android:layout_below="@id/now_playing_label">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/album_picture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="#ffafff5f"
+            android:contentDescription="Album Picture"
+            android:src="@drawable/music_note"/>
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:src="@drawable/player_album_picture_dimmer"
+            />
+    </com.avene.avene.livina.widget.SquareFrameLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/album_picture_wrapper"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal|right|end"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="@dimen/player_button_width"
+            android:layout_height="@dimen/player_button_height"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ic_player_black_skip_to_start"
+            android:padding="@dimen/player_button_padding"
+            />
+
+        <Button
+            android:id="@+id/button2"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="@dimen/player_button_width"
+            android:layout_height="@dimen/player_button_height"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ic_player_black_play"
+            android:padding="@dimen/player_button_padding"/>
+
+        <Button
+            android:id="@+id/button3"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="@dimen/player_button_width"
+            android:layout_height="@dimen/player_button_height"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ic_player_black_end"
+            android:padding="@dimen/player_button_padding"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        style="?android:attr/buttonBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/button4"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="@dimen/player_button_width"
+            android:layout_height="@dimen/player_button_height"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ic_player_black_shuffle"
+            android:padding="@dimen/player_button_padding"/>
+
+        <Button
+            android:id="@+id/button5"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="@dimen/player_button_width"
+            android:layout_height="@dimen/player_button_height"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/ic_player_black_repeat"
+            android:padding="@dimen/player_button_padding"/>
+    </LinearLayout>
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentStart="true"/>
+
+    <TextView
+        android:id="@+id/artist_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/album_picture_wrapper"
+        android:layout_alignLeft="@+id/album_picture_wrapper"
+        android:layout_alignStart="@+id/album_picture_wrapper"
+        android:paddingBottom="@dimen/spacing_ex_small"
+        android:paddingLeft="@dimen/spacing_small"
+        android:text="Artist"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ffffff"/>
+
+    <TextView
+        android:id="@+id/music_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/artist_name"
+        android:layout_alignLeft="@+id/album_picture_wrapper"
+        android:layout_alignStart="@+id/album_picture_wrapper"
+        android:paddingBottom="@dimen/spacing_ex_small"
+        android:paddingLeft="@dimen/spacing_small"
+        android:text="Music Title"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ffffff"/>
+
+    <TextView
+        android:id="@+id/album_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/music_title"
+        android:layout_alignLeft="@+id/album_picture_wrapper"
+        android:layout_alignStart="@+id/album_picture_wrapper"
+        android:paddingBottom="@dimen/spacing_ex_small"
+        android:paddingLeft="@dimen/spacing_small"
+        android:text="Album Title"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#ffffff"/>
+
+
+</RelativeLayout>
