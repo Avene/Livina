@@ -38,7 +38,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:src="@drawable/player_album_picture_dimmer"
-            />
+            android:contentDescription="Dimmer"/>
     </com.avene.avene.livina.widget.SquareFrameLayout>
 
     <LinearLayout
@@ -48,35 +48,38 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/album_picture_wrapper"
         android:layout_centerHorizontal="true"
-        android:gravity="center_horizontal|right|end"
+        android:gravity="center_horizontal|end"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/button"
+        <ImageButton
+            android:id="@+id/skip_to_start_Button"
+            android:contentDescription="Skip to start button"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="@dimen/player_button_width"
             android:layout_height="@dimen/player_button_height"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/ic_player_black_skip_to_start"
+            android:src="@drawable/ic_player_black_skip_to_start"
             android:padding="@dimen/player_button_padding"
             />
 
-        <Button
-            android:id="@+id/button2"
+        <ImageButton
+            android:id="@+id/play_Button"
+            android:contentDescription="Play button"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="@dimen/player_button_width"
             android:layout_height="@dimen/player_button_height"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/ic_player_black_play"
+            android:src="@drawable/ic_player_black_play"
             android:padding="@dimen/player_button_padding"/>
 
-        <Button
-            android:id="@+id/button3"
+        <ImageButton
+            android:id="@+id/end_Button"
+            android:contentDescription="End button"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="@dimen/player_button_width"
             android:layout_height="@dimen/player_button_height"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/ic_player_black_end"
+            android:src="@drawable/ic_player_black_end"
             android:padding="@dimen/player_button_padding"/>
     </LinearLayout>
 
@@ -91,22 +94,44 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/button4"
+        <ImageButton
+            android:id="@+id/shuffle_Button"
+            android:contentDescription="Shuffle button"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="@dimen/player_button_width"
             android:layout_height="@dimen/player_button_height"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/ic_player_black_shuffle"
+            android:src="@drawable/ic_player_black_shuffle"
             android:padding="@dimen/player_button_padding"/>
 
-        <Button
-            android:id="@+id/button5"
+        <ImageButton
+            android:id="@+id/repeat_Button"
+            android:contentDescription="Repeat button"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="@dimen/player_button_width"
             android:layout_height="@dimen/player_button_height"
             android:layout_gravity="center_vertical"
-            android:background="@drawable/ic_player_black_repeat"
+            android:src="@drawable/ic_player_black_repeat"
+            android:padding="@dimen/player_button_padding"/>
+        
+        <ImageButton
+            android:id="@+id/vol_up_Button"
+            android:contentDescription="Vol. up button"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="@dimen/player_button_width"
+            android:layout_height="@dimen/player_button_height"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_player_black_vol_up"
+            android:padding="@dimen/player_button_padding"/>
+
+        <ImageButton
+            android:id="@+id/vol_down_Button"
+            android:contentDescription="Vol. down button"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="@dimen/player_button_width"
+            android:layout_height="@dimen/player_button_height"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/ic_player_black_vol_down"
             android:padding="@dimen/player_button_padding"/>
     </LinearLayout>
 
@@ -158,6 +183,5 @@
         android:text="Album Title"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="#ffffff"/>
-
 
 </RelativeLayout>
