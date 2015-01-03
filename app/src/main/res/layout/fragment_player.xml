@@ -49,6 +49,7 @@
         android:layout_below="@+id/album_picture_wrapper"
         android:layout_centerHorizontal="true"
         android:gravity="center_horizontal|end"
+        android:background="@android:color/darker_gray"
         android:orientation="horizontal">
 
         <ImageButton
@@ -58,7 +59,7 @@
             android:layout_width="@dimen/player_button_width"
             android:layout_height="@dimen/player_button_height"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_player_black_skip_to_start"
+            android:src="@drawable/ic_player_lightgray_skip_to_start"
             android:padding="@dimen/player_button_padding"
             />
 
@@ -69,7 +70,7 @@
             android:layout_width="@dimen/player_button_width"
             android:layout_height="@dimen/player_button_height"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_player_black_play"
+            android:src="@drawable/ic_player_lightgray_play"
             android:padding="@dimen/player_button_padding"/>
 
         <ImageButton
@@ -79,7 +80,7 @@
             android:layout_width="@dimen/player_button_width"
             android:layout_height="@dimen/player_button_height"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_player_black_end"
+            android:src="@drawable/ic_player_lightgray_end"
             android:padding="@dimen/player_button_padding"/>
     </LinearLayout>
 
@@ -101,7 +102,7 @@
             android:layout_width="@dimen/player_button_width"
             android:layout_height="@dimen/player_button_height"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_player_black_shuffle"
+            android:src="@drawable/ic_player_lightgray_shuffle"
             android:padding="@dimen/player_button_padding"/>
 
         <ImageButton
@@ -111,9 +112,9 @@
             android:layout_width="@dimen/player_button_width"
             android:layout_height="@dimen/player_button_height"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_player_black_repeat"
+            android:src="@drawable/ic_player_lightgray_repeat"
             android:padding="@dimen/player_button_padding"/>
-        
+
         <ImageButton
             android:id="@+id/vol_up_Button"
             android:contentDescription="Vol. up button"
@@ -121,7 +122,7 @@
             android:layout_width="@dimen/player_button_width"
             android:layout_height="@dimen/player_button_height"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_player_black_vol_up"
+            android:src="@drawable/ic_player_lightgray_vol_up"
             android:padding="@dimen/player_button_padding"/>
 
         <ImageButton
@@ -131,7 +132,7 @@
             android:layout_width="@dimen/player_button_width"
             android:layout_height="@dimen/player_button_height"
             android:layout_gravity="center_vertical"
-            android:src="@drawable/ic_player_black_vol_down"
+            android:src="@drawable/ic_player_lightgray_vol_down"
             android:padding="@dimen/player_button_padding"/>
     </LinearLayout>
 
