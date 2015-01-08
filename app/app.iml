@@ -100,6 +100,7 @@
     <orderEntry type="library" exported="" name="seamless-swing-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="seamless-xml-1.1.0" level="project" />
     <orderEntry type="library" exported="" name="jetty-security-8.1.12.v20130726" level="project" />
+    <orderEntry type="library" exported="" name="butterknife-6.0.0" level="project" />
     <orderEntry type="library" exported="" name="recyclerview-v7-21.0.2" level="project" />
     <orderEntry type="library" exported="" name="palette-v7-21.0.2" level="project" />
     <orderEntry type="library" exported="" name="support-annotations-21.0.2" level="project" />
