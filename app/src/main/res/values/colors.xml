@@ -12,13 +12,13 @@
     <color name="dark_turquoise">#16a085</color>
     <color name="light_blue">#3498db</color>
     <color name="dark_blue">#2980b9</color>
-
     <color name="light_purple">#9b59b6</color>
     <color name="dark_purple">#8e44ad</color>
+
     <color name="light_ash">#ecf0f1</color>
     <color name="dark_ash">#bdc3c7</color>
     <color name="light_smoke">#95a5a6</color>
     <color name="dark_smoke">#7f8c8d</color>
-    <color name="light_gray">#34495e</color>
-    <color name="dark_gray">#2c3e50</color>
+    <color name="light_charcoal">#34495e</color>
+    <color name="dark_charcoal">#2c3e50</color>
 </resources>

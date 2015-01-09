@@ -4,6 +4,7 @@
                 android:layout_height="match_parent">
 
     <Switch
+        style="@style/Livina.switchStyle"
         android:id="@+id/server_switch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,8 +19,8 @@
         android:layout_centerVertical="true"
         android:text="@string/loading"
         android:gravity="start|center_vertical"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textOn="use"
-        android:textOff="not use"/>
+        android:textSize="18sp"
+        android:textOn="in use"
+        android:textOff="not in use"/>
 
 </RelativeLayout>
