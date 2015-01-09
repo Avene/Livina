@@ -57,6 +57,8 @@ public class MainActivity extends ActionBarActivity
 
     @InjectView(R.id.main_toolbar)
     Toolbar mToolbar;
+    @InjectView((R.id.drawer_layout))
+    DrawerLayout mDrawerLayout;
     /**
      * Used to store the last screen title. For use in {@link #restoreActionBar()}.
      */
@@ -75,8 +77,7 @@ public class MainActivity extends ActionBarActivity
                 getFragmentManager().findFragmentById(R.id.navigation_drawer);
 
         // Set up the drawer.
-        mNavigationDrawerFragment.setUp(
-                R.id.navigation_drawer, (DrawerLayout) findViewById(R.id.drawer_layout));
+        mNavigationDrawerFragment.setUp(R.id.navigation_drawer, mDrawerLayout);
     }
 
     @Override
