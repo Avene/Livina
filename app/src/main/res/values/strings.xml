@@ -14,7 +14,20 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="action_example">Example action</string>
-    <string name="loading">Loading…</string>
+    <string name="placeholder_loading">Loading…</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="label_now_playing">Now Playing</string>
+    <string name="cd_album_picture">Album Picture</string>
+    <string name="cd_dimmer">Dimmer</string>
+    <string name="placeholder_album_artist">Album artist</string>
+    <string name="placeholder_album_title">Album title</string>
+    <string name="placeholder_artist">Artist</string>
+    <string name="placeholder_music_title">Music Title</string>
+    <string name="cd_shuffle_button">Shuffle button</string>
+    <string name="cd_repeat_button">Repeat button</string>
+    <string name="cd_vol_up_button">Vol. up button</string>
+    <string name="cd_vol_dn_button">Vol. down button</string>
+    <string name="label_server_in_use">in use</string>
+    <string name="label_server_not_in_use">not in use</string>
 
 </resources>

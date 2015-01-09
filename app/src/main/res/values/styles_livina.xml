@@ -8,6 +8,7 @@
         <item name="android:textColor">@color/dark_charcoal</item>
         <item name="android:textColorPrimary">@color/dark_charcoal</item>
         <item name="android:textColorSecondary">@color/dark_charcoal</item>
+        <item name="android:windowBackground">@color/light_ash</item>
 
         <item name="switchStyle">@style/Livina.switchStyle</item>
 

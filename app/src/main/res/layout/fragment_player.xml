@@ -11,7 +11,7 @@
         android:id="@+id/now_playing_label"
         android:layout_width="match_parent"
         android:layout_height="@dimen/spacing_ex_large"
-        android:text="Now Playing"/>
+        android:text="@string/label_now_playing"/>
 
     <com.avene.avene.livina.widget.SquareFrameLayout
         android:id="@+id/album_picture_wrapper"
@@ -26,7 +26,7 @@
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
             android:background="#ffafff5f"
-            android:contentDescription="Album Picture"
+            android:contentDescription="@string/cd_album_picture"
             android:src="@drawable/music_note"/>
 
         <ImageView
@@ -39,7 +39,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:src="@drawable/player_album_picture_dimmer"
-            android:contentDescription="Dimmer"/>
+            android:contentDescription="@string/cd_dimmer"/>
     </com.avene.avene.livina.widget.SquareFrameLayout>
 
     <LinearLayout
@@ -98,7 +98,7 @@
 
         <ImageButton
             android:id="@+id/shuffle_Button"
-            android:contentDescription="Shuffle button"
+            android:contentDescription="@string/cd_shuffle_button"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="@dimen/player_button_width"
             android:layout_height="@dimen/player_button_height"
@@ -108,7 +108,7 @@
 
         <ImageButton
             android:id="@+id/repeat_Button"
-            android:contentDescription="Repeat button"
+            android:contentDescription="@string/cd_repeat_button"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="@dimen/player_button_width"
             android:layout_height="@dimen/player_button_height"
@@ -118,7 +118,7 @@
 
         <ImageButton
             android:id="@+id/vol_up_Button"
-            android:contentDescription="Vol. up button"
+            android:contentDescription="@string/cd_vol_up_button"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="@dimen/player_button_width"
             android:layout_height="@dimen/player_button_height"
@@ -128,7 +128,7 @@
 
         <ImageButton
             android:id="@+id/vol_down_Button"
-            android:contentDescription="Vol. down button"
+            android:contentDescription="@string/cd_vol_dn_button"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="@dimen/player_button_width"
             android:layout_height="@dimen/player_button_height"
@@ -156,9 +156,9 @@
         android:layout_alignStart="@+id/album_picture_wrapper"
         android:paddingBottom="@dimen/spacing_ex_small"
         android:paddingLeft="@dimen/spacing_small"
-        android:text="Artist"
+        android:text="@string/placeholder_artist"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/light_ash"/>
 
     <TextView
         android:id="@+id/music_title"
@@ -169,9 +169,9 @@
         android:layout_alignStart="@+id/album_picture_wrapper"
         android:paddingBottom="@dimen/spacing_ex_small"
         android:paddingLeft="@dimen/spacing_small"
-        android:text="Music Title"
+        android:text="@string/placeholder_music_title"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/light_ash"/>
 
     <TextView
         android:id="@+id/album_title"
@@ -182,8 +182,8 @@
         android:layout_alignStart="@+id/album_picture_wrapper"
         android:paddingBottom="@dimen/spacing_ex_small"
         android:paddingLeft="@dimen/spacing_small"
-        android:text="Album Title"
+        android:text="@string/placeholder_album_title"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#ffffff"/>
+        android:textColor="@color/light_ash"/>
 
 </RelativeLayout>

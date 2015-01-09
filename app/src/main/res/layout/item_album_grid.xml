@@ -10,7 +10,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
-        android:contentDescription="Album Picture"
+        android:contentDescription="@string/cd_album_picture"
         android:src="@drawable/im_dft_album"/>
 
     <ImageView
@@ -23,7 +23,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:src="@drawable/album_grid_dimmer"
-        />
+        android:contentDescription="@string/cd_dimmer"/>
 
     <TextView
         android:id="@+id/album_artist"
@@ -33,8 +33,8 @@
         android:gravity="start|center_vertical"
         android:paddingLeft="@dimen/spacing_small"
         android:paddingBottom="@dimen/spacing_ex_small"
-        android:text="Album artist"
-        android:textColor="@android:color/white"/>
+        android:text="@string/placeholder_album_artist"
+        android:textColor="@color/light_ash"/>
 
     <TextView
         android:id="@+id/album_title"
@@ -44,8 +44,8 @@
         android:gravity="start|center_vertical"
         android:paddingTop="@dimen/spacing_ex_small"
         android:paddingLeft="@dimen/spacing_small"
-        android:text="Album title"
+        android:text="@string/placeholder_album_title"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="@android:color/white"/>
+        android:textColor="@color/light_ash"/>
 
 </com.avene.avene.livina.widget.SquareFrameLayout>

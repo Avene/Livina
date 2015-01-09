@@ -17,10 +17,10 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:text="@string/loading"
+        android:text="@string/placeholder_loading"
         android:gravity="start|center_vertical"
         android:textSize="18sp"
-        android:textOn="in use"
-        android:textOff="not in use"/>
+        android:textOn="@string/label_server_in_use"
+        android:textOff="@string/label_server_not_in_use"/>
 
 </RelativeLayout>
