@@ -9,7 +9,6 @@ import java.util.Map;
  * Helper class for providing sample content for user interfaces created by
  * Android template wizards.
  * <p/>
- * TODO: Replace all uses of this class before publishing your app.
  */
 public class ServersContent {
 
@@ -33,6 +32,10 @@ public class ServersContent {
     private static void addItem(ServerItem item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.id, item);
+    }
+
+    public static int size() {
+        return ITEMS.size();
     }
 
     /**

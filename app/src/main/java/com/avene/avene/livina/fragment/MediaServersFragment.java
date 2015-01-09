@@ -1,8 +1,9 @@
 package com.avene.avene.livina.fragment;
 
 import android.app.Activity;
-import android.app.Fragment;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,7 +13,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 
 import com.avene.avene.livina.R;
+import com.avene.avene.livina.adapter.ServerListAdapter;
 import com.avene.avene.livina.content.ServersContent;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 /**
  * A fragment representing a list of Items.
@@ -38,8 +43,10 @@ public class MediaServersFragment extends LivinaFragment
     // The fragment's ListView/GridView.
     private AbsListView mListView;
 
-    // The Adapter which will be used to populate the ListView/GridView with Views.
-    private ListAdapter mAdapter;
+    @InjectView(R.id.server_list)
+    RecyclerView mRecyclerView;
+
+    private ServerListAdapter mAdapter;
 
     // TODO: Rename and change types of parameters
     public static MediaServersFragment newInstance(String param1, String param2) {
@@ -61,29 +68,29 @@ public class MediaServersFragment extends LivinaFragment
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        // TODO: Change Adapter to display your content
-        mAdapter = new ArrayAdapter<>(getActivity(),
-                R.layout.item_server, R.id.server_switch, ServersContent.ITEMS);
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_servers, container, false);
+        ButterKnife.inject(this, view);
+        // use this setting to improve performance if you know that changes
+        // in content do not change the layout size of the RecyclerView
+        mRecyclerView.setHasFixedSize(true);
 
-        // Set the adapter
-        mListView = (AbsListView) view.findViewById(android.R.id.list);
-        mListView.setAdapter(mAdapter);
+        // use a linear layout manager
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+        mRecyclerView.setLayoutManager(layoutManager);
 
-        // Set OnItemClickListener so we can be notified on item clicks
-        mListView.setOnItemClickListener(this);
-
+        mAdapter = new ServerListAdapter(getActivity());
+        mRecyclerView.setAdapter(mAdapter);
+        
         return view;
     }
     
