@@ -11,7 +11,7 @@
         <item name="android:windowBackground">@color/light_ash</item>
 
         <item name="switchStyle">@style/Livina.switchStyle</item>
-
+        <item name="android:textViewStyle">@style/Livina.textViewStyle</item>
     </style>
 
     <style name="Livina.containerStyle" parent="@style/Livina">
@@ -28,5 +28,9 @@
         <item name="android:textColorSecondary">@color/dark_charcoal</item>
 
     </style>
-    
+
+    <style name="Livina.textViewStyle">
+        <item name="android:textColor">@color/dark_charcoal</item>
+        
+    </style>
 </resources>

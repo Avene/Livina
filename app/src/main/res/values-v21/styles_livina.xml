@@ -10,7 +10,7 @@
         <item name="android:textColorSecondary">@color/dark_charcoal</item>
 
         <item name="android:switchStyle">@style/Livina.switchStyle</item>
-
+        <item name="android:textViewStyle">@style/Livina.textViewStyle</item>
     </style>
 
     <style name="Livina.containerStyle" parent="@style/Livina">
@@ -25,6 +25,11 @@
         <item name="android:textColor">@color/dark_charcoal</item>
         <item name="android:textColorPrimary">@color/dark_charcoal</item>
         <item name="android:textColorSecondary">@color/dark_charcoal</item>
+
+    </style>
+
+    <style name="Livina.textViewStyle">
+        <item name="android:textColor">@color/dark_charcoal</item>
 
     </style>
 

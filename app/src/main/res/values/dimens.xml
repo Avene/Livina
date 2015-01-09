@@ -16,6 +16,11 @@
     <dimen name="player_button_width">@dimen/player_button_size</dimen>
     <dimen name="player_button_height">@dimen/player_button_size</dimen>
     <dimen name="player_button_size">72dp</dimen>
+
+    <dimen name="player_button_small_width">@dimen/player_button_small_size</dimen>
+    <dimen name="player_button_small_height">@dimen/player_button_small_size</dimen>
+    <dimen name="player_button_small_size">60dp</dimen>
+
     <dimen name="player_button_padding">@dimen/spacing_small</dimen>
 
 </resources>
