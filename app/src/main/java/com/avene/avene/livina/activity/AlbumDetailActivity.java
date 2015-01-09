@@ -4,10 +4,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.NavUtils;
+import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
 import com.avene.avene.livina.fragment.AlbumDetailFragment;
 import com.avene.avene.livina.R;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 
 /**
@@ -20,11 +24,17 @@ import com.avene.avene.livina.R;
  * more than a {@link com.avene.avene.livina.fragment.AlbumDetailFragment}.
  */
 public class AlbumDetailActivity extends ActionBarActivity {
+    
+    @InjectView(R.id.album_detail_toolbar)
+    Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_album_detail);
+        ButterKnife.inject(this);
+
+        setSupportActionBar(mToolbar);
 
         // Show the Up button in the action bar.
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
