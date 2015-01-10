@@ -26,7 +26,7 @@ public class AlbumDetailFragment extends Fragment {
     /**
      * The dummy content this fragment is presenting.
      */
-    private AlbumsContent.DummyItem mItem;
+    private AlbumsContent.AlbumItem mItem;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the

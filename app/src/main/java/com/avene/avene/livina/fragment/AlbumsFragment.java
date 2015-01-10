@@ -1,19 +1,20 @@
 package com.avene.avene.livina.fragment;
 
 import android.app.Activity;
+import android.graphics.Rect;
 import android.os.Bundle;
-import android.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.TextView;
 
 import com.avene.avene.livina.R;
+import com.avene.avene.livina.adapter.AlbumListAdapter;
 import com.avene.avene.livina.content.AlbumsContent;
+
+import butterknife.ButterKnife;
+import butterknife.InjectView;
 
 /**
  * A fragment representing a list of Items.
@@ -25,7 +26,7 @@ import com.avene.avene.livina.content.AlbumsContent;
  * interface.
  */
 public class AlbumsFragment extends LivinaFragment
-        implements AbsListView.OnItemClickListener {
+        implements AlbumListAdapter.OnItemClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -41,13 +42,14 @@ public class AlbumsFragment extends LivinaFragment
     /**
      * The fragment's ListView/GridView.
      */
-    private AbsListView mListView;
+    @InjectView(R.id.albums_list)
+    RecyclerView mRecyclerView;
 
     /**
      * The Adapter which will be used to populate the ListView/GridView with
      * Views.
      */
-    private ListAdapter mAdapter;
+    private AlbumListAdapter mAdapter;
 
     // TODO: Rename and change types of parameters
     public static AlbumsFragment newInstance(String param1, String param2) {
@@ -75,9 +77,6 @@ public class AlbumsFragment extends LivinaFragment
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-        // TODO: Change Adapter to display your content
-        mAdapter = new ArrayAdapter<>(getActivity(),
-                R.layout.item_album_grid, R.id.album_title, AlbumsContent.ITEMS);
     }
 
     @Override
@@ -85,12 +84,33 @@ public class AlbumsFragment extends LivinaFragment
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_albums, container, false);
 
+        ButterKnife.inject(this, view);
+
+        mRecyclerView.addItemDecoration(new RecyclerView.ItemDecoration() {
+            @Override
+            public void getItemOffsets(Rect outRect, View view, RecyclerView parent,
+                                       RecyclerView.State state) {
+                int spacingSize = getActivity().getResources().getDimensionPixelSize(R
+                        .dimen.albums_grid_spacing);
+                outRect.set(spacingSize, spacingSize, spacingSize, spacingSize);
+            }
+        });
+
+        mRecyclerView.setHasFixedSize(true);
+
+        // use a linear layout manager
+        GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
+        mRecyclerView.setLayoutManager(layoutManager);
+
+        mAdapter = new AlbumListAdapter(getActivity());
+        mRecyclerView.setAdapter(mAdapter);
+
+
         // Set the adapter
-        mListView = (AbsListView) view.findViewById(android.R.id.list);
-        mListView.setAdapter(mAdapter);
+        mRecyclerView.setAdapter(mAdapter);
 
         // Set OnItemClickListener so we can be notified on item clicks
-        mListView.setOnItemClickListener(this);
+        mAdapter.setOnItemClickListener(this);
 
         return view;
     }
@@ -117,9 +137,8 @@ public class AlbumsFragment extends LivinaFragment
         mListener = null;
     }
 
-
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    public void onItemClick(View view, int position) {
         if (null != mListener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
@@ -127,18 +146,18 @@ public class AlbumsFragment extends LivinaFragment
         }
     }
 
-    /**
-     * The default content for this Fragment has a TextView that is shown when
-     * the list is empty. If you would like to change the text, call this method
-     * to supply the text it should use.
-     */
-    public void setEmptyText(CharSequence emptyText) {
-        View emptyView = mListView.getEmptyView();
-
-        if (emptyView instanceof TextView) {
-            ((TextView) emptyView).setText(emptyText);
-        }
-    }
+//    /**
+//     * The default content for this Fragment has a TextView that is shown when
+//     * the list is empty. If you would like to change the text, call this method
+//     * to supply the text it should use.
+//     */
+//    public void setEmptyText(CharSequence emptyText) {
+//        View emptyView = mRecyclerView.getEmptyView();
+//
+//        if (emptyView instanceof TextView) {
+//            ((TextView) emptyView).setText(emptyText);
+//        }
+//    }
 
     /**
      * This interface must be implemented by activities that contain this

@@ -6,16 +6,13 @@
              tools:context="com.avene.avene.livina.fragment.AlbumsFragment"
              >
 
-    <GridView
+    <android.support.v7.widget.RecyclerView
         style="@style/Livina.containerStyle"
-        android:id="@android:id/list"
+        android:id="@+id/albums_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:numColumns="2"
-        android:verticalSpacing="@dimen/albums_grid_spacing"
-        android:horizontalSpacing="@dimen/albums_grid_spacing"
         android:paddingLeft="@dimen/albums_grid_spacing"
-        android:paddingStart="@dimen/albums_grid_spacing"
         android:paddingRight="@dimen/albums_grid_spacing"
         android:paddingEnd="@dimen/albums_grid_spacing"
         tools:listitem="@layout/item_album_grid"/>
