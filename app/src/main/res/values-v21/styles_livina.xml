@@ -1,7 +1,7 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="Livina" parent="@android:style/Theme.Material.Light">
+    <style name="Livina" parent="style/Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <!--<item name="android:textColorPrimary">@color/light_ash</item>-->
         <!--<item name="android:textColorSecondary">@color/dark_ash</item>-->
@@ -9,7 +9,7 @@
         <item name="android:textColorPrimary">@color/dark_charcoal</item>
         <item name="android:textColorSecondary">@color/dark_charcoal</item>
 
-        <item name="android:switchStyle">@style/Livina.switchStyle</item>
+        <!--<item name="android:switchStyle">@style/Livina.switchStyle</item>-->
         <item name="android:textViewStyle">@style/Livina.textViewStyle</item>
     </style>
 
@@ -21,7 +21,7 @@
 
     </style>
 
-    <style name="Livina.switchStyle" parent="Widget.AppCompat.CompoundButton.Switch">
+    <style name="Livina.switchStyle" parent="Base.Widget.AppCompat.CompoundButton.Switch">
         <item name="android:textColor">@color/dark_charcoal</item>
         <item name="android:textColorPrimary">@color/dark_charcoal</item>
         <item name="android:textColorSecondary">@color/dark_charcoal</item>
