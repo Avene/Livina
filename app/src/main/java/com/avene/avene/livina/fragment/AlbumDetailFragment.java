@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.avene.avene.livina.R;
 import com.avene.avene.livina.content.AlbumsContent;
+import com.avene.avene.livina.upnp.DeviceDisplay;
 
 /**
  * A fragment representing a single Album detail screen.
@@ -26,7 +27,7 @@ public class AlbumDetailFragment extends Fragment {
     /**
      * The dummy content this fragment is presenting.
      */
-    private AlbumsContent.AlbumItem mItem;
+    private DeviceDisplay mItem;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -54,7 +55,8 @@ public class AlbumDetailFragment extends Fragment {
 
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
-            ((TextView) rootView.findViewById(R.id.album_detail)).setText(mItem.content);
+            ((TextView) rootView.findViewById(R.id.album_detail))
+                    .setText(mItem.getDevice().getDisplayString());
         }
 
         return rootView;

@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.avene.avene.livina.R;
 import com.avene.avene.livina.content.AlbumsContent;
+import com.avene.avene.livina.upnp.DeviceDisplay;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -71,7 +72,7 @@ public class AlbumListAdapter extends RecyclerView.Adapter<AlbumListAdapter.View
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        AlbumsContent.AlbumItem d = AlbumsContent.ITEMS.get(position);
+        DeviceDisplay d = AlbumsContent.ITEMS.get(position);
         holder.mAlbumTitle.setText(d.toString());
     }
 

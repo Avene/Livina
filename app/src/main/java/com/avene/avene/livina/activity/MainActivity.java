@@ -284,8 +284,7 @@ public class MainActivity extends ActionBarActivity
                     }
                 });
                 deviceRemoved(device);
-            }
-// End of optimization, you can remove the whole block if your Android handset is fast (>=600 Mhz)
+            } // End of optimization, you can remove the whole block if your Android handset is fast (>=600 Mhz)
 
             @Override
             public void remoteDeviceAdded(Registry registry, RemoteDevice device) {

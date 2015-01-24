@@ -15,6 +15,11 @@ import java.util.List;
  */
 public class DeviceDisplay {
     Device mDevice;
+    
+    public String getDeviceMacId(){
+        return mDevice.getIdentity().toString();
+        
+    }
 
     public DeviceDisplay(Device device) {
         this.mDevice = device;
