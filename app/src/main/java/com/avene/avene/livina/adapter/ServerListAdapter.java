@@ -1,22 +1,15 @@
 package com.avene.avene.livina.adapter;
 
 import android.content.Context;
-import android.graphics.drawable.Drawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Switch;
-import android.widget.TextView;
 
 import com.avene.avene.livina.R;
 import com.avene.avene.livina.content.ServersContent;
 import com.avene.avene.livina.upnp.DeviceDisplay;
-
-import java.util.ArrayList;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
@@ -61,7 +54,7 @@ public class ServerListAdapter extends RecyclerView.Adapter<ServerListAdapter.Vi
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        ServersContent.ServerItem d = ServersContent.ITEMS.get(position);
+        DeviceDisplay d = ServersContent.ITEMS.get(position);
         holder.mSwitch.setText(d.toString());
     }
 

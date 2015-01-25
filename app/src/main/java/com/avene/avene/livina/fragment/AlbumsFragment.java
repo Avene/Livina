@@ -65,32 +65,32 @@ public class AlbumsFragment extends LivinaFragment
      * Views.
      */
     private AlbumListAdapter mAdapter;
-    private AndroidUpnpService mUpnpService;
-    private BrowseRegistryListener registryListener = new BrowseRegistryListener();
-    private ServiceConnection serviceConnection = new ServiceConnection() {
-
-        public void onServiceConnected(ComponentName className, IBinder service) {
-            mUpnpService = (AndroidUpnpService) service;
-
-            // Clear the list
-            AlbumsContent.clearItems();
-
-            // Get ready for future device advertisements
-            mUpnpService.getRegistry().addListener(registryListener);
-
-            // Now add all devices to the list we already know about
-            for (Device device : mUpnpService.getRegistry().getDevices()) {
-                registryListener.deviceAdded(device);
-            }
-
-            // Search asynchronously for all devices, they will respond soon
-            mUpnpService.getControlPoint().search();
-        }
-
-        public void onServiceDisconnected(ComponentName className) {
-            mUpnpService = null;
-        }
-    };
+//    private AndroidUpnpService mUpnpService;
+//    private BrowseRegistryListener registryListener = new BrowseRegistryListener();
+//    private ServiceConnection serviceConnection = new ServiceConnection() {
+//
+//        public void onServiceConnected(ComponentName className, IBinder service) {
+//            mUpnpService = (AndroidUpnpService) service;
+//
+//            // Clear the list
+//            AlbumsContent.clearItems();
+//
+//            // Get ready for future device advertisements
+//            mUpnpService.getRegistry().addListener(registryListener);
+//
+//            // Now add all devices to the list we already know about
+//            for (Device device : mUpnpService.getRegistry().getDevices()) {
+//                registryListener.deviceAdded(device);
+//            }
+//
+//            // Search asynchronously for all devices, they will respond soon
+//            mUpnpService.getControlPoint().search();
+//        }
+//
+//        public void onServiceDisconnected(ComponentName className) {
+//            mUpnpService = null;
+//        }
+//    };
 
     // TODO: Rename and change types of parameters
     public static AlbumsFragment newInstance(String param1, String param2) {
@@ -152,9 +152,9 @@ public class AlbumsFragment extends LivinaFragment
         // Set OnItemClickListener so we can be notified on item clicks
         mAdapter.setOnItemClickListener(this);
 
-        getActivity().getApplicationContext().bindService(
-                new Intent(getActivity(), AndroidUpnpServiceImpl.class),
-                serviceConnection, Context.BIND_AUTO_CREATE);
+//        getActivity().getApplicationContext().bindService(
+//                new Intent(getActivity(), AndroidUpnpServiceImpl.class),
+//                serviceConnection, Context.BIND_AUTO_CREATE);
 
 
         return view;
@@ -187,7 +187,7 @@ public class AlbumsFragment extends LivinaFragment
         if (null != mListener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
-            mListener.onAlbumsInteraction(AlbumsContent.ITEMS.get(position).getDeviceMacId());
+            mListener.onAlbumsInteraction(AlbumsContent.ITEMS.get(position).id);
         }
     }
 
@@ -219,74 +219,74 @@ public class AlbumsFragment extends LivinaFragment
         public void onAlbumsInteraction(String id);
     }
 
-    private class BrowseRegistryListener extends DefaultRegistryListener {
-
-        // Discovery performance optimization for very slow Android devices!
-        @Override
-        public void remoteDeviceDiscoveryStarted(Registry registry, RemoteDevice device) {
-            deviceAdded(device);
-        }
-
-        @Override
-        public void remoteDeviceDiscoveryFailed(Registry registry, final RemoteDevice device,
-                                                final Exception ex) {
-            getActivity().runOnUiThread(new Runnable() {
-                public void run() {
-                    Toast.makeText(getActivity(),
-                            "Discovery failed of '" + device.getDisplayString() + "': "
-                                    + (ex != null ? ex.toString() : "Couldn't retrieve " +
-                                    "device/service descriptors"),
-                            Toast.LENGTH_LONG
-                    ).show();
-                }
-            });
-            deviceRemoved(device);
-        } // End of optimization, you can remove the whole block if your Android handset is fast
-        // (>=600 Mhz)
-
-        @Override
-        public void remoteDeviceAdded(Registry registry, RemoteDevice device) {
-            deviceAdded(device);
-        }
-
-        @Override
-        public void remoteDeviceRemoved(Registry registry, RemoteDevice device) {
-            deviceRemoved(device);
-        }
-
-        @Override
-        public void localDeviceAdded(Registry registry, LocalDevice device) {
-            deviceAdded(device);
-        }
-
-        @Override
-        public void localDeviceRemoved(Registry registry, LocalDevice device) {
-            deviceRemoved(device);
-        }
-
-        public void deviceAdded(final Device device) {
-            getActivity().runOnUiThread(new Runnable() {
-                public void run() {
-                    DeviceDisplay d = new DeviceDisplay(device);
-                    int position = AlbumsContent.ITEMS.indexOf(d);
-                    if (position >= 0) {
-                        // Device already in the list, re-set new value at same position
-                        AlbumsContent.addItem(d);
-                        AlbumsContent.ITEMS.add(position, d);
-                    } else {
-                        AlbumsContent.ITEMS.add(d);
-                    }
-                }
-            });
-        }
-
-        public void deviceRemoved(final Device device) {
-            getActivity().runOnUiThread(new Runnable() {
-                public void run() {
-                    AlbumsContent.removeItem(new DeviceDisplay(device));
-                }
-            });
-        }
-    }
+//    private class BrowseRegistryListener extends DefaultRegistryListener {
+//
+//        // Discovery performance optimization for very slow Android devices!
+//        @Override
+//        public void remoteDeviceDiscoveryStarted(Registry registry, RemoteDevice device) {
+//            deviceAdded(device);
+//        }
+//
+//        @Override
+//        public void remoteDeviceDiscoveryFailed(Registry registry, final RemoteDevice device,
+//                                                final Exception ex) {
+//            getActivity().runOnUiThread(new Runnable() {
+//                public void run() {
+//                    Toast.makeText(getActivity(),
+//                            "Discovery failed of '" + device.getDisplayString() + "': "
+//                                    + (ex != null ? ex.toString() : "Couldn't retrieve " +
+//                                    "device/service descriptors"),
+//                            Toast.LENGTH_LONG
+//                    ).show();
+//                }
+//            });
+//            deviceRemoved(device);
+//        } // End of optimization, you can remove the whole block if your Android handset is fast
+//        // (>=600 Mhz)
+//
+//        @Override
+//        public void remoteDeviceAdded(Registry registry, RemoteDevice device) {
+//            deviceAdded(device);
+//        }
+//
+//        @Override
+//        public void remoteDeviceRemoved(Registry registry, RemoteDevice device) {
+//            deviceRemoved(device);
+//        }
+//
+//        @Override
+//        public void localDeviceAdded(Registry registry, LocalDevice device) {
+//            deviceAdded(device);
+//        }
+//
+//        @Override
+//        public void localDeviceRemoved(Registry registry, LocalDevice device) {
+//            deviceRemoved(device);
+//        }
+//
+//        public void deviceAdded(final Device device) {
+//            getActivity().runOnUiThread(new Runnable() {
+//                public void run() {
+//                    AlbumItem d = new DeviceDisplay(device);
+//                    int position = AlbumsContent.ITEMS.indexOf(d);
+//                    if (position >= 0) {
+//                        // Device already in the list, re-set new value at same position
+//                        AlbumsContent.addItem(d);
+//                        AlbumsContent.ITEMS.add(position, d);
+//                    } else {
+//                        AlbumsContent.ITEMS.add(d);
+//                    }
+//                }
+//            });
+//        }
+//
+//        public void deviceRemoved(final Device device) {
+//            getActivity().runOnUiThread(new Runnable() {
+//                public void run() {
+//                    AlbumsContent.removeItem(new DeviceDisplay(device));
+//                }
+//            });
+//        }
+//    }
 
 }

@@ -1,4 +1,5 @@
 package com.avene.avene.livina.content;
+import com.avene.avene.livina.upnp.DeviceDisplay;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -15,44 +16,52 @@ public class ServersContent {
     /**
      * An array of sample (dummy) items.
      */
-    public static List<ServerItem> ITEMS = new ArrayList<ServerItem>();
+    public static List<DeviceDisplay> ITEMS = new ArrayList<DeviceDisplay>();
 
     /**
      * A map of sample (dummy) items, by ID.
      */
-    public static Map<String, ServerItem> ITEM_MAP = new HashMap<String, ServerItem>();
+    public static Map<String, DeviceDisplay> ITEM_MAP = new HashMap<String, DeviceDisplay>();
 
     static {
         // Add 3 sample items.
-        addItem(new ServerItem("1", "Server 1"));
-        addItem(new ServerItem("2", "Server 2"));
-        addItem(new ServerItem("3", "Server 3"));
+//        addItem(new DeviceDisplay("1", "Server 1"));
+//        addItem(new DeviceDisplay("2", "Server 2"));
+//        addItem(new DeviceDisplay("3", "Server 3"));
     }
 
-    private static void addItem(ServerItem item) {
+    public static void addItem(DeviceDisplay item) {
         ITEMS.add(item);
-        ITEM_MAP.put(item.id, item);
+        ITEM_MAP.put(item.getDeviceMacId(), item);
+    }
+
+    public static void removeItem(DeviceDisplay dd){
+        ITEMS.add(dd);
+        ITEM_MAP.put(dd.getDeviceMacId(), dd);
+    }
+
+    public static void clear(){
+        ITEMS.clear();
+        ITEM_MAP.clear();
     }
 
     public static int size() {
         return ITEMS.size();
     }
-
-    /**
-     * A dummy item representing a piece of content.
-     */
+    
     public static class ServerItem {
         public String id;
+
         public String content;
 
         public ServerItem(String id, String content) {
             this.id = id;
             this.content = content;
         }
-
         @Override
         public String toString() {
             return content;
         }
+
     }
 }

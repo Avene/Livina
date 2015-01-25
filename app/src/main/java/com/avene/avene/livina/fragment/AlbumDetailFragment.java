@@ -27,7 +27,7 @@ public class AlbumDetailFragment extends Fragment {
     /**
      * The dummy content this fragment is presenting.
      */
-    private DeviceDisplay mItem;
+    private AlbumsContent.AlbumItem mItem;
 
     /**
      * Mandatory empty constructor for the fragment manager to instantiate the
@@ -56,7 +56,7 @@ public class AlbumDetailFragment extends Fragment {
         // Show the dummy content as text in a TextView.
         if (mItem != null) {
             ((TextView) rootView.findViewById(R.id.album_detail))
-                    .setText(mItem.getDevice().getDisplayString());
+                    .setText(mItem.content);
         }
 
         return rootView;

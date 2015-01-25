@@ -72,7 +72,7 @@ public class AlbumListAdapter extends RecyclerView.Adapter<AlbumListAdapter.View
     public void onBindViewHolder(ViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        DeviceDisplay d = AlbumsContent.ITEMS.get(position);
+        AlbumsContent.AlbumItem d = AlbumsContent.ITEMS.get(position);
         holder.mAlbumTitle.setText(d.toString());
     }
 
