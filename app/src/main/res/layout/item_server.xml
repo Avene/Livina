@@ -20,7 +20,7 @@
         android:text="@string/placeholder_loading"
         android:gravity="start|center_vertical"
         android:textSize="18sp"
-        android:textOn="@string/label_server_in_use"
-        android:textOff="@string/label_server_not_in_use"/>
+        android:textOn="@string/label_server_on"
+        android:textOff="@string/label_server_off"/>
 
 </RelativeLayout>

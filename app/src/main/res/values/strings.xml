@@ -27,8 +27,8 @@
     <string name="cd_repeat_button">Repeat button</string>
     <string name="cd_vol_up_button">Vol. up button</string>
     <string name="cd_vol_dn_button">Vol. down button</string>
-    <string name="label_server_in_use">in use</string>
-    <string name="label_server_not_in_use">not in use</string>
+    <string name="label_server_on">on</string>
+    <string name="label_server_off">off</string>
     <string name="cd_skip_to_start_button">Skip to start button</string>
     <string name="cd_play_button">Play button</string>
     <string name="cd_end_button">End button</string>
