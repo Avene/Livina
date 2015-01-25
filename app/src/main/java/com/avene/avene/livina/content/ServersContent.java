@@ -23,13 +23,6 @@ public class ServersContent {
      */
     public static Map<String, DeviceDisplay> ITEM_MAP = new HashMap<String, DeviceDisplay>();
 
-    static {
-        // Add 3 sample items.
-//        addItem(new DeviceDisplay("1", "Server 1"));
-//        addItem(new DeviceDisplay("2", "Server 2"));
-//        addItem(new DeviceDisplay("3", "Server 3"));
-    }
-
     public static void addItem(DeviceDisplay item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.getDeviceMacId(), item);

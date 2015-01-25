@@ -65,32 +65,6 @@ public class AlbumsFragment extends LivinaFragment
      * Views.
      */
     private AlbumListAdapter mAdapter;
-//    private AndroidUpnpService mUpnpService;
-//    private BrowseRegistryListener registryListener = new BrowseRegistryListener();
-//    private ServiceConnection serviceConnection = new ServiceConnection() {
-//
-//        public void onServiceConnected(ComponentName className, IBinder service) {
-//            mUpnpService = (AndroidUpnpService) service;
-//
-//            // Clear the list
-//            AlbumsContent.clearItems();
-//
-//            // Get ready for future device advertisements
-//            mUpnpService.getRegistry().addListener(registryListener);
-//
-//            // Now add all devices to the list we already know about
-//            for (Device device : mUpnpService.getRegistry().getDevices()) {
-//                registryListener.deviceAdded(device);
-//            }
-//
-//            // Search asynchronously for all devices, they will respond soon
-//            mUpnpService.getControlPoint().search();
-//        }
-//
-//        public void onServiceDisconnected(ComponentName className) {
-//            mUpnpService = null;
-//        }
-//    };
 
     // TODO: Rename and change types of parameters
     public static AlbumsFragment newInstance(String param1, String param2) {
@@ -152,11 +126,6 @@ public class AlbumsFragment extends LivinaFragment
         // Set OnItemClickListener so we can be notified on item clicks
         mAdapter.setOnItemClickListener(this);
 
-//        getActivity().getApplicationContext().bindService(
-//                new Intent(getActivity(), AndroidUpnpServiceImpl.class),
-//                serviceConnection, Context.BIND_AUTO_CREATE);
-
-
         return view;
     }
 
@@ -191,19 +160,6 @@ public class AlbumsFragment extends LivinaFragment
         }
     }
 
-//    /**
-//     * The default content for this Fragment has a TextView that is shown when
-//     * the list is empty. If you would like to change the text, call this method
-//     * to supply the text it should use.
-//     */
-//    public void setEmptyText(CharSequence emptyText) {
-//        View emptyView = mRecyclerView.getEmptyView();
-//
-//        if (emptyView instanceof TextView) {
-//            ((TextView) emptyView).setText(emptyText);
-//        }
-//    }
-
     /**
      * This interface must be implemented by activities that contain this
      * fragment to allow an interaction in this fragment to be communicated
@@ -218,75 +174,5 @@ public class AlbumsFragment extends LivinaFragment
         // TODO: Update argument type and name
         public void onAlbumsInteraction(String id);
     }
-
-//    private class BrowseRegistryListener extends DefaultRegistryListener {
-//
-//        // Discovery performance optimization for very slow Android devices!
-//        @Override
-//        public void remoteDeviceDiscoveryStarted(Registry registry, RemoteDevice device) {
-//            deviceAdded(device);
-//        }
-//
-//        @Override
-//        public void remoteDeviceDiscoveryFailed(Registry registry, final RemoteDevice device,
-//                                                final Exception ex) {
-//            getActivity().runOnUiThread(new Runnable() {
-//                public void run() {
-//                    Toast.makeText(getActivity(),
-//                            "Discovery failed of '" + device.getDisplayString() + "': "
-//                                    + (ex != null ? ex.toString() : "Couldn't retrieve " +
-//                                    "device/service descriptors"),
-//                            Toast.LENGTH_LONG
-//                    ).show();
-//                }
-//            });
-//            deviceRemoved(device);
-//        } // End of optimization, you can remove the whole block if your Android handset is fast
-//        // (>=600 Mhz)
-//
-//        @Override
-//        public void remoteDeviceAdded(Registry registry, RemoteDevice device) {
-//            deviceAdded(device);
-//        }
-//
-//        @Override
-//        public void remoteDeviceRemoved(Registry registry, RemoteDevice device) {
-//            deviceRemoved(device);
-//        }
-//
-//        @Override
-//        public void localDeviceAdded(Registry registry, LocalDevice device) {
-//            deviceAdded(device);
-//        }
-//
-//        @Override
-//        public void localDeviceRemoved(Registry registry, LocalDevice device) {
-//            deviceRemoved(device);
-//        }
-//
-//        public void deviceAdded(final Device device) {
-//            getActivity().runOnUiThread(new Runnable() {
-//                public void run() {
-//                    AlbumItem d = new DeviceDisplay(device);
-//                    int position = AlbumsContent.ITEMS.indexOf(d);
-//                    if (position >= 0) {
-//                        // Device already in the list, re-set new value at same position
-//                        AlbumsContent.addItem(d);
-//                        AlbumsContent.ITEMS.add(position, d);
-//                    } else {
-//                        AlbumsContent.ITEMS.add(d);
-//                    }
-//                }
-//            });
-//        }
-//
-//        public void deviceRemoved(final Device device) {
-//            getActivity().runOnUiThread(new Runnable() {
-//                public void run() {
-//                    AlbumsContent.removeItem(new DeviceDisplay(device));
-//                }
-//            });
-//        }
-//    }
 
 }
