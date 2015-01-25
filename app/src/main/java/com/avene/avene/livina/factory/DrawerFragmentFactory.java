@@ -4,7 +4,7 @@ import android.app.Fragment;
 
 import com.avene.avene.livina.fragment.AlbumsFragment;
 import com.avene.avene.livina.fragment.LivinaFragment;
-import com.avene.avene.livina.fragment.MediaServersFragment;
+import com.avene.avene.livina.fragment.ServersFragment;
 import com.avene.avene.livina.fragment.Player;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class DrawerFragmentFactory {
     static {
         sDrawerFragments = new LivinaFragment[]{
                 AlbumsFragment.newInstance(null, null),
-                MediaServersFragment.newInstance(null, null),
+                ServersFragment.newInstance(null, null),
                 Player.newInstance(null, null)
         };
         ArrayList<String> titles = new ArrayList<String>();

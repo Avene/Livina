@@ -39,7 +39,7 @@ import butterknife.InjectView;
  * Activities containing this fragment MUST implement the {@link OnFragmentInteractionListener}
  * interface.
  */
-public class MediaServersFragment extends LivinaFragment
+public class ServersFragment extends LivinaFragment
         implements AbsListView.OnItemClickListener {
 
     // TODO: Rename parameter arguments, choose names that match
@@ -88,8 +88,8 @@ public class MediaServersFragment extends LivinaFragment
     };
 
     // TODO: Rename and change types of parameters
-    public static MediaServersFragment newInstance(String param1, String param2) {
-        MediaServersFragment fragment = new MediaServersFragment();
+    public static ServersFragment newInstance(String param1, String param2) {
+        ServersFragment fragment = new ServersFragment();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -101,7 +101,7 @@ public class MediaServersFragment extends LivinaFragment
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public MediaServersFragment() {
+    public ServersFragment() {
     }
 
     @Override
@@ -165,7 +165,7 @@ public class MediaServersFragment extends LivinaFragment
         if (null != mListener) {
             // Notify the active callbacks interface (the activity, if the
             // fragment is attached to one) that an item has been selected.
-            mListener.onMediaServerInteraction(ServersContent.ITEMS.get(position).getDeviceMacId());
+            mListener.onServerInteraction(ServersContent.ITEMS.get(position).getDeviceMacId());
         }
     }
 
@@ -181,7 +181,7 @@ public class MediaServersFragment extends LivinaFragment
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        public void onMediaServerInteraction(String id);
+        public void onServerInteraction(String id);
     }
 
     private class BrowseRegistryListener extends DefaultRegistryListener {

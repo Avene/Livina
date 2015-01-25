@@ -28,7 +28,7 @@ import com.avene.avene.livina.adapter.MainAdapter;
 import com.avene.avene.livina.factory.DrawerFragmentFactory;
 import com.avene.avene.livina.fragment.AlbumDetailFragment;
 import com.avene.avene.livina.fragment.AlbumsFragment;
-import com.avene.avene.livina.fragment.MediaServersFragment;
+import com.avene.avene.livina.fragment.ServersFragment;
 import com.avene.avene.livina.fragment.NavigationDrawerFragment;
 import com.avene.avene.livina.fragment.Player;
 import com.avene.avene.livina.upnp.DeviceDisplay;
@@ -47,7 +47,7 @@ import butterknife.InjectView;
 public class MainActivity extends ActionBarActivity
         implements NavigationDrawerFragment.NavigationDrawerCallbacks,
         AlbumsFragment.OnFragmentInteractionListener,
-        MediaServersFragment.OnFragmentInteractionListener,
+        ServersFragment.OnFragmentInteractionListener,
         Player.OnFragmentInteractionListener {
 
     /**
@@ -140,7 +140,7 @@ public class MainActivity extends ActionBarActivity
     }
 
     @Override
-    public void onMediaServerInteraction(String id) {
+    public void onServerInteraction(String id) {
         Toast.makeText(this, "server selected", Toast.LENGTH_SHORT).show();
     }
 
