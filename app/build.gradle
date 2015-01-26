@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'testfairy'
-
+apply plugin: 'hugo'
 android {
     compileSdkVersion 21
     buildToolsVersion "20.0.0"
@@ -62,5 +62,7 @@ buildscript {
 
     dependencies {
         classpath 'com.testfairy.plugins.gradle:testfairy:1.+'
+        classpath 'com.jakewharton.hugo:hugo-plugin:1.1.0'
     }
 }
+

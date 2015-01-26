@@ -17,7 +17,7 @@ public class LivinaApplication extends Application {
         // Fix the logging integration between java.util.logging and Android internal logging
         org.seamless.util.logging.LoggingUtil.resetRootHandler(new FixedAndroidLogHandler());
         // Now you can enable logging as needed for various categories of Cling:
-        Logger.getLogger("org.fourthline.cling").setLevel(Level.FINEST);
+        Logger.getLogger("org.fourthline.cling").setLevel(Level.INFO);
 
     }
 }

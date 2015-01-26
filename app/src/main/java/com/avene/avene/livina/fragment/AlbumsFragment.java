@@ -30,6 +30,7 @@ import org.fourthline.cling.registry.Registry;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import hugo.weaving.DebugLog;
 
 /**
  * A fragment representing a list of Items.
@@ -94,6 +95,7 @@ public class AlbumsFragment extends LivinaFragment
 
     }
 
+    @DebugLog
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

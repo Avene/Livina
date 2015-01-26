@@ -31,6 +31,7 @@ import org.fourthline.cling.registry.Registry;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import hugo.weaving.DebugLog;
 
 /**
  * A fragment representing a list of Items.
@@ -41,6 +42,7 @@ import butterknife.InjectView;
  */
 public class ServersFragment extends LivinaFragment
         implements AbsListView.OnItemClickListener {
+    private final String TAG = "com.avene.avene.livina.fragment.ServersFragment";
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -187,11 +189,13 @@ public class ServersFragment extends LivinaFragment
     private class BrowseRegistryListener extends DefaultRegistryListener {
 
         // Discovery performance optimization for very slow Android devices!
+        @DebugLog
         @Override
         public void remoteDeviceDiscoveryStarted(Registry registry, RemoteDevice device) {
             deviceAdded(device);
         }
 
+        @DebugLog
         @Override
         public void remoteDeviceDiscoveryFailed(Registry registry, final RemoteDevice device,
                                                 final Exception ex) {
@@ -209,21 +213,25 @@ public class ServersFragment extends LivinaFragment
         } // End of optimization, you can remove the whole block if your Android handset is fast
         // (>=600 Mhz)
 
+        @DebugLog
         @Override
         public void remoteDeviceAdded(Registry registry, RemoteDevice device) {
             deviceAdded(device);
         }
 
+        @DebugLog
         @Override
         public void remoteDeviceRemoved(Registry registry, RemoteDevice device) {
             deviceRemoved(device);
         }
 
+        @DebugLog
         @Override
         public void localDeviceAdded(Registry registry, LocalDevice device) {
             deviceAdded(device);
         }
 
+        @DebugLog
         @Override
         public void localDeviceRemoved(Registry registry, LocalDevice device) {
             deviceRemoved(device);
