@@ -28,9 +28,14 @@ public class ServersContent {
         ITEM_MAP.put(item.getDeviceMacId(), item);
     }
 
+    public static void addItem(int position, DeviceDisplay item) {
+        ITEMS.add(position, item);
+        ITEM_MAP.put(item.getDeviceMacId(), item);
+    }
+
     public static void removeItem(DeviceDisplay dd){
-        ITEMS.add(dd);
-        ITEM_MAP.put(dd.getDeviceMacId(), dd);
+        ITEMS.remove(dd);
+        ITEM_MAP.remove(dd.getDeviceMacId());
     }
 
     public static void clear(){
@@ -42,19 +47,4 @@ public class ServersContent {
         return ITEMS.size();
     }
     
-    public static class ServerItem {
-        public String id;
-
-        public String content;
-
-        public ServerItem(String id, String content) {
-            this.id = id;
-            this.content = content;
-        }
-        @Override
-        public String toString() {
-            return content;
-        }
-
-    }
 }

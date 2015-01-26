@@ -236,10 +236,10 @@ public class ServersFragment extends LivinaFragment
                     int position = ServersContent.ITEMS.indexOf(d);
                     if (position >= 0) {
                         // Device already in the list, re-set new value at same position
-                        ServersContent.addItem(d);
-                        ServersContent.ITEMS.add(position, d);
+                        ServersContent.removeItem(d);
+                        ServersContent.addItem(position, d);
                     } else {
-                        ServersContent.ITEMS.add(d);
+                        ServersContent.addItem(d);
                     }
                     mAdapter.notifyDataSetChanged();
                 }
