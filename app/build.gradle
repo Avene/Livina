@@ -63,7 +63,7 @@ dependencies {
     // ButterKnife
     compile 'com.jakewharton:butterknife:6.0.0'
     // RxAndroid
-    compile 'io.reactivex:rxandroid:0.22.0'
+    compile 'io.reactivex:rxandroid:0.24.0'
 }
 buildscript {
     repositories {
@@ -72,7 +72,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.testfairy.plugins.gradle:testfairy:1.+'
+        classpath 'com.testfairy.plugins.gradle:testfairy:1.12'
         classpath 'com.jakewharton.hugo:hugo-plugin:1.1.0'
         classpath 'me.tatarka:gradle-retrolambda:2.5.0'
     }
