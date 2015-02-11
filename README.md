@@ -4,11 +4,11 @@ Livina
 Android UPnP Controller
 
 ## Licenses and Copyrights
-## icons are from Icons8.
+#### icons are from Icons8.
 
 > Icons made by [Icons8](http://www.icons8.com) from [www.flaticon.com](http://www.flaticon.com) is licensed by [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/).
 
-## Butterknife by Jake Wharton
+#### Butterknife by Jake Wharton
 
 > Copyright 2013 Jake Wharton
 >   Licensed under the Apache License, Version 2.0 (the "License");
@@ -23,7 +23,7 @@ Android UPnP Controller
 >   See the License for the specific language governing permissions and
 >   limitations under the License.
 
-## Hugo by Jake Wharton
+#### Hugo by Jake Wharton
 > Copyright 2013 Jake Wharton
 
 >   Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,7 +38,7 @@ Android UPnP Controller
 >   See the License for the specific language governing permissions and
 >   limitations under the License.
 
-## Cling by 4thline
+#### Cling by 4thline
 
 > Copyright 2014, 4th Line GmbH, Switzerland, http://4thline.com/
 
@@ -50,7 +50,7 @@ Android UPnP Controller
 >   See the GNU Lesser General Public License for more details:
 >     http://www.gnu.org/licenses/lgpl-2.1.html
 
-## gradle retrolambda plugin by Evan Tatarka
+#### gradle retrolambda plugin by Evan Tatarka
  
 > Copyright 2013, Evan Tatarka
 
