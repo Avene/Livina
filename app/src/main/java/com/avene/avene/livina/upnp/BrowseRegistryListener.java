@@ -77,26 +77,9 @@ public class BrowseRegistryListener extends DefaultRegistryListener {
     }
 
     public void deviceAdded(final Device device) {
-        Observable<Device> observable = Observable.create(new Observable.OnSubscribe<Device>() {
-            @Override
-            public void call(Subscriber<? super Device> subscriber) {
-                subscriber.onNext(device);
-            }
-        });
+        Observable<Device> observable = Observable.create(subscriber -> subscriber.onNext(device));
         observable.subscribe(mAdapter);
         observable.subscribe(ServersContent::addItem);
-        mServersFragment.getActivity().runOnUiThread(() -> {
-//            DeviceDisplay d = new DeviceDisplay(device);
-//            int position = ServersContent.ITEMS.indexOf(d);
-//            if (position >= 0) {
-//                // Device already in the list, re-set new value at same position
-//                ServersContent.removeItem(d);
-//                ServersContent.addItem(position, d);
-//            } else {
-//                ServersContent.addItem(d);
-//            }
-//            mServersFragment.mAdapter.notifyDataSetChanged();
-        });
     }
 
     public void deviceRemoved(final Device device) {
