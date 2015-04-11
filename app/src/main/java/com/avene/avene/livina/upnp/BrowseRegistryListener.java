@@ -24,12 +24,10 @@ import rx.subjects.ReplaySubject;
 public class BrowseRegistryListener extends DefaultRegistryListener {
 
     private ServersFragment mServersFragment;
-    private ServerListAdapter mAdapter;
     private ReplaySubject<Device> deviceStream;
 
-    public BrowseRegistryListener(ServersFragment serversFragment, ServerListAdapter adapter) {
+    public BrowseRegistryListener(ServersFragment serversFragment) {
         mServersFragment = serversFragment;
-        mAdapter = adapter;
         deviceStream = ReplaySubject.create();
 
     }

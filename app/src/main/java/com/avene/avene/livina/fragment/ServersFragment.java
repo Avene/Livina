@@ -94,7 +94,7 @@ public class ServersFragment extends LivinaFragment
         View view = inflater.inflate(R.layout.fragment_servers, container, false);
         ButterKnife.inject(this, view);
 
-        registryListener = new BrowseRegistryListener(this, mAdapter);
+        registryListener = new BrowseRegistryListener(this);
 
         ServersContent.subscribe(registryListener.getDeviceStream());
         // use this setting to improve performance if you know that changes
