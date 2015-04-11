@@ -93,6 +93,10 @@ public class ServersFragment extends LivinaFragment
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_servers, container, false);
         ButterKnife.inject(this, view);
+
+        registryListener = new BrowseRegistryListener(this, mAdapter);
+
+        ServersContent.subscribe(registryListener.getDeviceStream());
         // use this setting to improve performance if you know that changes
         // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
@@ -102,9 +106,9 @@ public class ServersFragment extends LivinaFragment
         mRecyclerView.setLayoutManager(layoutManager);
 
         mAdapter = new ServerListAdapter(getActivity());
+        mAdapter.subscribeContentsStream(ServersContent.getContentStream());
         mRecyclerView.setAdapter(mAdapter);
 
-        registryListener = new BrowseRegistryListener(this, mAdapter);
         serviceConnection = new ServiceConnection() {
 
             public void onServiceConnected(ComponentName className, IBinder service) {
@@ -129,7 +133,7 @@ public class ServersFragment extends LivinaFragment
                 mUpnpService = null;
             }
         };
-        
+
         getActivity().getApplicationContext().bindService(
                 new Intent(getActivity(), AndroidUpnpServiceImpl.class),
                 serviceConnection, Context.BIND_AUTO_CREATE

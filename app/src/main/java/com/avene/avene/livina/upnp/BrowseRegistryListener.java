@@ -15,6 +15,8 @@ import org.fourthline.cling.registry.Registry;
 import hugo.weaving.DebugLog;
 import rx.Observable;
 import rx.Subscriber;
+import rx.internal.operators.OperatorDoOnEach;
+import rx.subjects.ReplaySubject;
 
 /**
  * Created by yamai on 2/11/2015.
@@ -23,10 +25,12 @@ public class BrowseRegistryListener extends DefaultRegistryListener {
 
     private ServersFragment mServersFragment;
     private ServerListAdapter mAdapter;
+    private ReplaySubject<Device> deviceStream;
 
     public BrowseRegistryListener(ServersFragment serversFragment, ServerListAdapter adapter) {
         mServersFragment = serversFragment;
         mAdapter = adapter;
+        deviceStream = ReplaySubject.create();
 
     }
 
@@ -77,13 +81,15 @@ public class BrowseRegistryListener extends DefaultRegistryListener {
     }
 
     public void deviceAdded(final Device device) {
-        Observable<Device> observable = Observable.create(subscriber -> subscriber.onNext(device));
-        observable.subscribe(mAdapter);
-        observable.subscribe(ServersContent::addItem);
+        deviceStream.onNext(device);
     }
 
     public void deviceRemoved(final Device device) {
         mServersFragment.getActivity().runOnUiThread(() -> ServersContent.removeItem(new
                 DeviceDisplay(device)));
+    }
+
+    public Observable<Device> getDeviceStream() {
+        return deviceStream;
     }
 }

@@ -1,4 +1,6 @@
 package com.avene.avene.livina.content;
+import android.util.Log;
+
 import com.avene.avene.livina.upnp.DeviceDisplay;
 
 import org.fourthline.cling.model.meta.Device;
@@ -8,7 +10,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import rx.Observable;
 import rx.Observer;
+import rx.subjects.BehaviorSubject;
 
 /**
  * Helper class for providing sample content for user interfaces created by
@@ -27,14 +31,21 @@ public class ServersContent {
      */
     public static Map<String, DeviceDisplay> ITEM_MAP = new HashMap<String, DeviceDisplay>();
 
+    private static BehaviorSubject<DeviceDisplay> contentStream = BehaviorSubject.create();
+
+    public static BehaviorSubject<DeviceDisplay> getContentStream(){
+        return contentStream;
+    }
     public static void addItem(DeviceDisplay item) {
         ITEMS.add(item);
         ITEM_MAP.put(item.getDeviceMacId(), item);
     }
 
     public static void addItem(int position, DeviceDisplay item) {
+        Log.d("ServersContent", "DeviceAdded");
         ITEMS.add(position, item);
         ITEM_MAP.put(item.getDeviceMacId(), item);
+        contentStream.onNext(item);
     }
 
     public static void removeItem(DeviceDisplay dd){
@@ -61,5 +72,9 @@ public class ServersContent {
         } else {
             addItem(d);
         }
+    }
+
+    public static void subscribe(Observable<Device> deviceStream){
+        deviceStream.subscribe(ServersContent::addItem);
     }
 }

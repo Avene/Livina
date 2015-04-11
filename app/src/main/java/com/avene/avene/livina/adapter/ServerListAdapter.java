@@ -1,6 +1,7 @@
 package com.avene.avene.livina.adapter;
 
 import android.content.Context;
+import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,7 +16,12 @@ import org.fourthline.cling.model.meta.Device;
 
 import butterknife.ButterKnife;
 import butterknife.InjectView;
+import rx.Observable;
 import rx.Observer;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
+import rx.subjects.BehaviorSubject;
 
 /**
  * Created by yamai on 12/13/2014.
@@ -82,6 +88,12 @@ public class ServerListAdapter
     @Override
     public int getItemCount() {
         return ServersContent.size();
+    }
+
+    public void subscribeContentsStream(BehaviorSubject<DeviceDisplay> stream){
+        stream.subscribeOn(Schedulers.newThread())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(deviceDisplay -> notifyDataSetChanged());
     }
 
 //    public void clear() {
